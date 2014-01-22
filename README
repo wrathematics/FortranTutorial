@@ -1,4 +1,8 @@
-Introduction to Fortran tutorial
+Fortran tutorials.
+
+Currently only an introductory tutorial is available.  These are slides
+from a presentation, and probably the LaTeX/beamer source is more interesting
+than the content.
 
 If it doesn't compile for you, send your requests, comments, complaints, 
 and questions to dontcare@/dev/null
