@@ -1,0 +1,203 @@
+\section{Basics}
+\makesubcontentsslides
+
+\begin{frame}
+  \begin{block}{Basic Type}\pause
+  \begin{itemize}
+    \item Integer
+    \item Real/double
+    \item Complex/double complex
+    \item Logical
+    \item Character
+  \end{itemize}
+  \end{block}
+\end{frame}
+
+
+\subsection{Numeric Types}
+
+\begin{frame}
+  \begin{block}{Integer}\pause
+  Whole numbers.
+  \begin{itemize}
+    \item 1
+    \item -517
+    \item 0
+    \item Not 1.2
+    \item Not $\pi$
+    \item Not 0.0
+  \end{itemize}
+  \end{block}
+\end{frame}
+
+
+
+\begin{frame}
+  \begin{block}{Real and Double}\pause
+  Floating point
+  \begin{itemize}
+    \item 1.1
+    \item 3.14159
+    \item Not 1
+    \item Not $\sqrt{-1}$
+  \end{itemize}
+  \end{block}
+\end{frame}
+
+
+\begin{frame}
+  \begin{block}{Basic Numeric Operations}\pause
+  \begin{itemize}
+    \item \tabinlist{\code{a=b}:} {assign the value of \code{b} to \code{a}}
+    \item \tabinlist{\code{a+b}:}{add \code{a} and \code{b}}
+    \item \tabinlist{\code{a-b}:} {subtract \code{b} from \code{a}}
+    \item \tabinlist{\code{a*b}:} {multiply \code{a} and \code{b}}
+    \item \tabinlist{\code{a/b}:} {divide \code{b} into \code{a}}
+    \item \tabinlist{\code{a**b}:} {raise \code{a} to the power \code{b}}
+  \end{itemize}
+  \end{block}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \begin{block}{Quick example}\pause
+\begin{lstlisting}
+program arithmetic
+    integer :: a = 2, b = 3
+
+    print *, a+b
+    print *, a**b
+    print *, a/b
+end program
+\end{lstlisting}
+\begin{lstlisting}[language=shl]
+           5
+           8
+           0
+\end{lstlisting}
+  \end{block}
+\end{frame}
+
+
+
+\subsection{Logical Type}
+
+\begin{frame}
+  \begin{block}{Logical}\pause
+  Logical variables can take two values:
+  \begin{itemize}
+    \item \code{.true.}
+    \item \code{.false.}
+  \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Comparing Logicals}\pause
+  \begin{itemize}
+    \item \tabinlist{\code{.eqv.}} {tests if two logical expressions are equivalent}
+    \item \tabinlist{\code{.neqv.}} {tests if two logical expressions are \emph{not} equivalent}
+    \item \tabinlist{\code{.and.}} {the and operator}
+    \item \tabinlist{\code{.or.}} {the or operator}
+    \item \tabinlist{\code{.not.}} {the negation operator}
+  \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Comparing Numerics}\pause
+  \begin{itemize}
+    \item \tabinlisttwo{\code{a<b} or \code{a.lt.b}:} {\code{a} less than \code{b}}
+    \item \tabinlisttwo{\code{a<=b} or \code{a.le.b}:} {\code{a} less than or equal to \code{b}}
+    \item \tabinlisttwo{\code{a>b} or \code{a.gt.b}:} {\code{a} greater than \code{b}}
+    \item \tabinlisttwo{\code{a>=b} or \code{a.ge.b}:} {\code{a} greater than or equal to \code{b}}
+    \item \tabinlisttwo{\code{a==b} or \code{a.eq.b}:} {\code{a} equal to \code{b}}
+    \item \tabinlisttwo{\code{a/=b} or \code{a.ne.b}:} {\code{a} not equal to \code{b}}
+  \end{itemize}
+  The type of a numeric comparison is of type \code{logical}.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Comparing Numerics}\pause
+  Note: The output of a comparison of numerics is logical:
+  \begin{itemize}
+    \item \code{a < b < c} makes no sense (types mismatch)
+    \item Instead: \code{a < b .and. b < c}
+  \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{block}{Quick example}\pause
+\begin{lstlisting}
+program logicals
+    integer :: a = 2, b = 3, c = 1
+
+    print *, a < b
+    print *, a /= b .and. a < c
+end program
+\end{lstlisting}
+\begin{lstlisting}[language=shl]
+ T
+ F
+\end{lstlisting}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Implicit Declaration}\pause
+  \begin{itemize}
+    \item In Fortran, variables may be used \emph{implicitly}.
+    \item Do not get into the habit of doing this.
+    \item You can turn this off in a program (function, subroutine) by declaring \code{implicit none}.
+    \item Declaring \code{implicit none} is generally recommended.
+  \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{block}{Implicit variables quick example}\pause
+Compiles:
+\vspace*{-.4cm}
+\begin{lstlisting}
+program implicit_declaration
+    a = 2
+    b = 3
+    print *, a+b
+end program
+\end{lstlisting}
+Fails to compile:
+\vspace*{-.4cm}
+\begin{lstlisting}
+program implicit_declaration
+    implicit none
+    a = 2
+    b = 3
+    print *, a+b
+end program
+\end{lstlisting}
+  \end{block}
+\end{frame}
+
+
+\begin{frame}
+  \begin{block}{Example}\pause
+    Go to example.\\[.4cm]
+    Not covered: 
+    \begin{itemize}
+      \item complex
+      \item character
+      \item kind/precision
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+% \begin{frame}[fragile]
+%   \begin{block}{Logical}\pause
+% \begin{lstlisting}[language=ft]
+% 
+% \end{lstlisting}
+%   \end{block}
+% \end{frame}
+

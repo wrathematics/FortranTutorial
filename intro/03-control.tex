@@ -1,0 +1,133 @@
+\section{Control}
+\makesubcontentsslides
+
+\subsection{if-then-else}
+
+\begin{frame}[fragile]
+  \begin{block}{\code{if-then-else}}\pause
+Conditionals can take a few different forms:
+\begin{lstlisting}
+if (condition) one-liner
+\end{lstlisting}
+\begin{lstlisting}
+if (condition 1) then
+    statement
+else if (condition 2) then
+    statement
+else if (...) then
+    ...
+else
+     statement
+end if
+\end{lstlisting}
+Note: the \code{else if} and \code{else} pieces are optional
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{block}{\code{if-then-else} quick example}\pause
+\begin{lstlisting}
+integer :: score
+character(len=1) :: grade
+
+if (score < 60) then
+    grade = "F"
+else if (score < 70) then
+    grade = "D"
+else if (score < 80) then
+    grade = "C"
+else if (score < 90) then
+    grade = "B"
+else
+    grade = "A"
+end if
+\end{lstlisting}
+  \end{block}
+\end{frame}
+
+
+
+\subsection{Loops}
+
+\begin{frame}[fragile]
+  \begin{block}{\code{do} Loops}\pause
+\begin{lstlisting}
+do index = first, last, step
+    ! statements
+end do
+\end{lstlisting}
+  \begin{itemize}
+    \item \code{index}, \code{first}, \code{last} are integers
+    \item \code{step} is a non-zero integer
+    \item \code{step} can be omitted (and in this case, the step is 1)
+  \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{block}{\code{do} loops quick example}\pause
+\begin{lstlisting}
+integer :: factorial, i, n
+
+print *, "Give me a positive integer integer:"
+read *, n
+
+factorial = 1
+
+do i = 2, n
+    factorial = factorial * i
+end do  
+
+print *, n, "! = ", factorial
+\end{lstlisting}
+  \end{block}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \begin{block}{\code{do} Loops}\pause
+\begin{lstlisting}
+do
+    ! statements
+end do
+\end{lstlisting}
+  \begin{itemize}
+    \item \code{statements} are executed repeatedly
+    \item To exit the loop, use \code{exit}
+    \item To jump to the next iteration, use \code{cycle}
+  \end{itemize}
+  \end{block}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \begin{block}{\code{do} loops quick example}\pause
+\begin{lstlisting}
+integer :: f, i, n
+
+print *, "Give me an integer:"
+read *, n
+
+f = 1
+i = 2
+do
+    if (i <= n) then
+        f = f * i
+        i = i + 1
+    else
+        exit
+    end if
+end do  
+
+print *, n, "! = ", f
+\end{lstlisting}
+  \end{block}
+\end{frame}
+
+
+\begin{frame}
+  \begin{block}{Example}\pause
+    Go to example.\\[.4cm]
+    Not covered: \code{do-while} loops
+  \end{block}
+\end{frame}

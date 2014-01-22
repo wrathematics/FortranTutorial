@@ -1,0 +1,180 @@
+\section{Introduction}
+\makesubcontentsslides
+
+
+\subsection{Background}
+
+\begin{frame}
+  \begin{block}{What is Fortran?}\pause
+  \begin{itemize}
+    \item \textbf{For}mula \textbf{tran}slation system.
+    \item General purpose programming language.
+    \item Well-suited for mathematics and engineering.
+    \item Compiled (rather than interpreted)
+    \item Portable.
+  \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{History}\pause
+  \begin{itemize}
+    \item Created at IBM in 1954 as an alternative to assembly language.
+    \item Debuted in the days of punch cards.
+    \item Regularly gets updated to a new standard.
+  \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{block}{What people think Fortran is like}
+\begin{minipage}{.475\textwidth}
+\begin{lstlisting}
+ 1121 FORMAT(I4,F8.3)
+ 3298 CONTINUE
+      IF(MOD(I,A)
+     $.EQ.Z) THEN
+      GOTO 2359
+      ELSE IF(MOD(I,B)
+     $.EQ.Z) THEN
+      GOTO 8125
+      ELSE
+      WRITE (*,2930) I
+      GOTO 7365
+      END IF
+ 7235 FORMAT(A,F5.3)
+ 7356 CONTINUE
+      I=I
+     $+1
+      GOTO 1249
+ 2930 FORMAT(I4,$)
+ 2359 CONTINUE
+\end{lstlisting}
+\end{minipage}
+\begin{minipage}{.475\textwidth}
+  \begin{center}
+    \includegraphics{pics/tombstone}
+  \end{center}
+\end{minipage}
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+  \begin{block}{Standards}\pause
+  Fortran standards are denoted by year.
+  \begin{itemize}
+    \item Fortran 66
+    \item Fortran 77
+    \item Fortran 90
+    \item Fortran 95
+    \item Fortran 2003
+    \item Fortran 2008
+    \item Fortran 2015
+  \end{itemize}
+  \end{block}
+\end{frame}
+
+
+\begin{frame}
+  \begin{block}{Language Features}\pause
+  Fortran essentially has two formats:  Fortran 77 and ``modern''.\\
+  All versions have:
+  \begin{itemize}
+    \item Matrices.
+    \item Complex numbers.
+    \item Good interoperability with C.
+    \item REALLY good compilers.
+  \end{itemize}
+  Modern variants of Fortran additionally have:
+  \begin{itemize}
+    \item Dynamic memory allocation.
+    \item Pointers.
+    \item OOP.
+  \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Applications for Fortran}\pause
+  \begin{minipage}{.475\textwidth}
+  Bad applications:
+    \begin{itemize}
+      \item A website
+      \item An OS kernel
+      \item Text processing
+      \item Random number generators
+    \end{itemize}
+  \end{minipage}
+  \begin{minipage}{.475\textwidth}
+  Good applications:
+    \begin{itemize}
+      \item Mathematics
+      \item Engineering
+      \item Statistics
+      \item Scientific computing
+    \end{itemize}
+  \end{minipage}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Compilers}\pause
+  \begin{itemize}
+    \item GNU \code{gfortran} (free)
+    \item Intel \code{ifortran}
+    \item Portland Group \code{pgfortran}
+    \item \dots
+  \end{itemize}
+  \end{block}
+\end{frame}
+
+
+\begin{frame}
+  \begin{block}{Why Fortran?}\pause
+  \begin{itemize}
+    \item High level language
+    \item Avoids fiddly memory management like in C
+    \item Fortran binaries are VERY fast
+    \item Good HPC support (MPI, OpenMP, \dots)
+  \end{itemize}
+  \end{block}
+\end{frame}
+
+
+
+\subsection{Hello World}
+
+\begin{frame}[fragile]
+\begin{block}{Hello world example}
+\begin{lstlisting}[title=hello.f]
+      program helloworld
+      print *, "Hello world"
+      end program helloworld
+\end{lstlisting}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{block}{Hello world example}
+\begin{lstlisting}[title=hello.f90]
+program helloworld
+    print *, "Hello world"
+end program helloworld
+\end{lstlisting}
+\end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Comments}
+    \begin{itemize}
+      \item \code{.f} is for F77, \code{.f90} is for F90+
+      \item Don't use F77.
+      \item Fortran is case insensitive.
+      \item \code{print} and \code{write} print/write output
+      \item \code{read} reads input
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+

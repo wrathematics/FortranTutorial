@@ -1,0 +1,170 @@
+\section[Functions]{Functions, Intrinsics, and Subroutines}
+\makesubcontentsslides
+
+
+
+\subsection{Functions}
+
+\begin{frame}[fragile]
+  \begin{block}{Functions}\pause
+\begin{lstlisting}
+! Declaration
+function foo(bar)
+    type :: foo
+    ! statements
+end function
+
+! Invocation
+a = foo(b)
+\end{lstlisting}
+  \begin{itemize}
+    \item Can take variety of inputs.
+    \item Returns single output.
+  \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{block}{Functions quick example}\pause
+\begin{lstlisting}
+function circumference(r)
+    implicit none
+    real :: pi = 3.14159
+    real :: r
+    real :: circumference
+    circumference = 2.0*pi*r
+end function circumference
+
+program circles
+    real :: r = 2.0
+    real :: circumference
+    print *, circumference(r)
+end program circles
+\end{lstlisting}
+\begin{lstlisting}[language=shl]
+   12.5663605  
+\end{lstlisting}
+  \end{block}
+\end{frame}
+
+
+\subsection{Intrinsics}
+
+\begin{frame}
+  \begin{block}{Intrinsics}\pause
+  \begin{itemize}
+    \item Built-in functions.
+    \item Casting.
+    \item Basic math utilitis.
+    \item Bit-shifting.
+  \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Intrinsic Examples}\pause
+  {\small
+    \begin{tabular}{ll|ll}\hline
+      Intrinsic & Effect & Intrinsic & Effect\\\hline
+      \code{int} & Convert to \code{integer} & \code{mod} & Modular arithmetic\\
+      \code{real} & Convert to \code{real} & \code{abs} & Absolute value\\
+      \code{floor} & Greatest integer below & \code{sqrt} & Square root\\
+      \code{ceiling} & Smallest integer above & \code{exp} & Exponential\\\hline
+    \end{tabular}
+  }
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{block}{Intrinsics quick example}\pause
+\begin{lstlisting}
+integer :: a = 2, b = 3
+
+print *, mod(3, 2)
+print *, real(a/b)
+print *, real(a) / real(b)
+ \end{lstlisting}
+\begin{lstlisting}[language=shl]
+           1
+   0.00000000    
+  0.666666687
+\end{lstlisting}
+  \end{block}
+\end{frame}
+
+
+
+\subsection{Subroutines}
+
+\begin{frame}[fragile]
+  \begin{block}{Subroutines}\pause
+\begin{lstlisting}
+! Declaration
+subroutine foo(bar, baz)
+    type :: bar, baz
+    ! statements
+end subroutine
+
+! Invocation
+call foo(a, b)
+\end{lstlisting}
+  \begin{itemize}
+    \item Can take variety of inputs.
+    \item Returns a variety of outputs (modifying values of inputs).
+    \item Equivalent in C is \code{void} function.
+  \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{block}{Intent}\pause
+  \begin{itemize}
+    \item Can declare intention of use for variable.
+    \item \code{intent(in)}, \code{intent(out)}, \code{intent(inout)}.
+    \item Like \code{implicit none}, not strictly necessary, but useful.
+  \end{itemize}
+\begin{lstlisting}
+subroutine foo(a, b)
+    integer, intent(in) :: a
+    integer, intent(out) :: b
+    ! statements
+end subroutine
+\end{lstlisting}
+  \end{block}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \begin{block}{Subroutine quick example}\pause
+\vspace*{-.4cm}
+\begin{lstlisting}
+subroutine circ_stuff(r, circumference, area)
+    implicit none
+    real :: pi = 3.14159
+    real, intent(in) :: r
+    real, intent(out) :: circumference, area
+    circumference = 2.0 * pi * r
+    area = pi * r * r 
+end subroutine circ_stuff
+
+program circles
+    real :: r = 2.0, circumference, area
+    call circ_stuff(r, circumference, area)
+    print *, "Circumference = ", circumference
+    print *, "Area = ", area
+end program circles
+\end{lstlisting}
+\vspace{-.2cm}
+\begin{lstlisting}[language=shl]
+ Circumference =    12.5663605    
+ Area =    12.5663605   
+\end{lstlisting}
+  \end{block}
+\end{frame}
+
+
+\begin{frame}
+  \begin{block}{Example}\pause
+    Go to example.
+  \end{block}
+\end{frame}

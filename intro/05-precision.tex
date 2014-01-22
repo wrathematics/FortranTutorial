@@ -1,0 +1,80 @@
+\section{Precision}
+\makesubcontentsslides
+
+
+\begin{frame}
+  \begin{block}{Precision}\pause
+    In C, there are two floating point types
+    \begin{itemize}
+      \item \code{float}
+      \item \code{double}
+    \end{itemize}
+    In elder Fortran, the corresponding types are
+    \begin{itemize}
+      \item \code{real}
+      \item \code{double precision}
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+
+\begin{frame}
+  \begin{block}{Scientific Notation and Precision}\pause
+\begin{align*}
+\text{number} = \text{mantissa}\times 10^{\text{exponent}}\\
+1.234 = 1234\times 10^{-4}
+\end{align*}
+    \begin{itemize}
+      \item \code{real}: 23 bit of mantissa, 8 bits of exponent, and 1 sign bit.
+      \item \code{double precision}: 52 bit of mantissa, 11 bits of exponent, and 1 sign bit.
+    \end{itemize}
+    \begin{itemize}
+      \item \code{real}: $\approx$ 6 decimal digits of precision
+      \item \code{double precision}: $\approx$ 15 decimal digits of precision
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+
+\subsection{Kind}
+
+\begin{frame}[fragile]
+  \begin{block}{Kind}\pause
+    \begin{itemize}
+      \item \code{kind} is a parameter that specifies the storage/precision of a type (beyond its default)
+      \item \code{real(kind=4)}
+      \item Different compilers assign different meaning to \code{kind}.
+      \item Avoid this complexity with the intrinsic functions \code{selected_<type>_kind}
+    \end{itemize}
+    \begin{itemize}
+      \item \code{real(kind=selected_real_kind(6))}
+      \item \code{real(kind=selected_real_kind(15))} 
+      \item \dots
+    \end{itemize}
+
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{block}{Quick example}\pause
+\begin{lstlisting}
+program kind_example
+    implicit none
+    integer, parameter :: r15 = selected_real_kind(15)
+    real :: x
+    real(kind=r15) :: y
+    
+    x = 1.0
+    y = 1.0
+    
+    print *, x
+    print *, y
+    
+end program
+\end{lstlisting}
+\begin{lstlisting}[language=shl]
+   1.00000000    
+   1.0000000000000000  
+\end{lstlisting}
+  \end{block}
+\end{frame}

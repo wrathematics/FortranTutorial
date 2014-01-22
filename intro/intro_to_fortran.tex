@@ -1,0 +1,49 @@
+\input{zzz_document_class}
+\slidesfinal
+% \slidestest
+% \makehandouts
+
+%%% Styles and settings
+\input{zzz_settings}
+\newcommand{\tabinlist}[2]{\begin{tabular}{p{1cm}l}#1 & #2 \end{tabular}}
+\newcommand{\tabinlisttwo}[2]{\begin{tabular}{p{2.8cm}l}#1 & #2 \end{tabular}}
+
+
+\utpres
+
+
+\newcommand{\myauthor}{Drew Schmidt}
+\newcommand{\myurl}{}
+\newcommand{\myfulltitle}{Introduction to Fortran }
+\newcommand{\myabbrvtitle}{Introduction to Fortran }
+\newcommand{\mydate}{January 16, 2014}
+
+
+
+% Don't touch
+\title{\myfulltitle}
+\newcommand{\mytitlea}{\makebox[.45\paperwidth]{\myabbrvtitle\hfill%
+       \insertframenumber/\inserttotalframenumber}}
+\newcommand{\mytitleb}{\myabbrvtitle}
+\date{\mydate \\[1.4cm] \titlelogos} 
+\newcommand{\theauthorgoeshere}{\makebox[.45\paperwidth]{%
+  \myurl \hfill \myauthor}}
+\author[\theauthorgoeshere]{Drew Schmidt}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\input{00_firstfew}
+
+\input{01-introduction}
+\input{02-basics}
+\input{03-control}
+\input{04-intrinsics}
+\input{05-precision}
+
+\input{zzz_closing}
+
+
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,0 +1,18 @@
+-finish examples
+
+-slide 2
+
+
+Excluded
+-kind/precision
+-complex
+-characters
+-format statements
+-modules
+-arrays
+-I/O
+-pointers
+-interfacing to C
+-OOP
+-openmp, mpi, ...
+
